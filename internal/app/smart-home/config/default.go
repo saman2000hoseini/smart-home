@@ -6,5 +6,5 @@ hivemq:
   port: 1883
   address: localhost
   connection: tcp
-  client: iot
+  client: server
 `
