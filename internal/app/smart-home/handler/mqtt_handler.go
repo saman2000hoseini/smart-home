@@ -8,19 +8,19 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type BathHandler struct {
+type MQTTBathHandler struct {
 	userRepo  model.UserRepo
 	publisher *hivemq.Publisher
 }
 
-func NewBathHandler(repo model.UserRepo, publisher *hivemq.Publisher) *BathHandler {
-	return &BathHandler{
+func NewMQTTBathHandler(repo model.UserRepo, publisher *hivemq.Publisher) *MQTTBathHandler {
+	return &MQTTBathHandler{
 		userRepo:  repo,
 		publisher: publisher,
 	}
 }
 
-func (b *BathHandler) HandleBath(_ mqtt.Client, message mqtt.Message) {
+func (b *MQTTBathHandler) HandleMQTTBath(_ mqtt.Client, message mqtt.Message) {
 	logrus.Infof("user entered: %s", hex.EncodeToString(message.Payload()))
 
 	user, err := b.userRepo.Find(hex.EncodeToString(message.Payload()))

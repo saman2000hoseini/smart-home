@@ -1,4 +1,4 @@
-package subscriber
+package mqtt_subscriber
 
 import (
 	"fmt"
@@ -21,13 +21,13 @@ func main(cfg config.Config) {
 	client := hivemq.CreateHiveMQConnection(cfg.HiveMQ)
 	userRepo := model.NewSQLUserRepo(myDB)
 
-	bathHandler := handler.NewBathHandler(userRepo, hivemq.NewPublisher(client))
+	bathHandler := handler.NewMQTTBathHandler(userRepo, hivemq.NewPublisher(client))
 	subscriber := hivemq.NewSubscriber(client)
 
-	subscriber.Run(hivemq.RFID_TOPIC, bathHandler.HandleBath)
+	subscriber.Run(hivemq.RFID_TOPIC, bathHandler.HandleMQTTBath)
 }
 
-// Register registers subscriber command for smart-home binary.
+// Register registers mqtt-subscriber command for smart-home binary.
 func Register(root *cobra.Command, cfg config.Config) {
 	publish := &cobra.Command{
 		Use:   "subscribe",

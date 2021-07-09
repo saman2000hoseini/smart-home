@@ -1,8 +1,9 @@
 package cmd
 
 import (
-	"github.com/saman2000hoseini/smart-home/internal/app/smart-home/cmd/publisher"
-	"github.com/saman2000hoseini/smart-home/internal/app/smart-home/cmd/subscriber"
+	"github.com/saman2000hoseini/smart-home/internal/app/smart-home/cmd/coap-server"
+	http_server "github.com/saman2000hoseini/smart-home/internal/app/smart-home/cmd/http-server"
+	"github.com/saman2000hoseini/smart-home/internal/app/smart-home/cmd/mqtt-subscriber"
 	"github.com/spf13/cobra"
 
 	"github.com/saman2000hoseini/smart-home/internal/app/smart-home/config"
@@ -16,8 +17,9 @@ func NewRootCommand() *cobra.Command {
 
 	cfg := config.Init()
 
-	publisher.Register(root, cfg)
-	subscriber.Register(root, cfg)
+	mqtt_subscriber.Register(root, cfg)
+	coap_server.Register(root, cfg)
+	http_server.Register(root, cfg)
 
 	return root
 }
