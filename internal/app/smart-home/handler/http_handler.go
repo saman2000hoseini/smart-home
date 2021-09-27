@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"encoding/json"
 	"github.com/labstack/echo/v4"
 	"github.com/saman2000hoseini/smart-home/internal/app/smart-home/model"
 	"github.com/sirupsen/logrus"
@@ -31,11 +30,5 @@ func (h *HTTPBathHandler) HandleHTTPBath(c echo.Context) error {
 		return c.NoContent(http.StatusNotFound)
 	}
 
-	jsonUser, err := json.Marshal(user)
-	if err != nil {
-		logrus.Infof("couldnt marshal user(id: %v): %s", user, err.Error())
-		return c.NoContent(http.StatusInternalServerError)
-	}
-
-	return c.JSON(http.StatusOK, jsonUser)
+	return c.JSON(http.StatusOK, user)
 }

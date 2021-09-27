@@ -2,7 +2,7 @@ package config
 
 // nolint:lll
 const defaultConfig = `
-hivemq:
+mqtt:
   port: 1883
   address: localhost
   connection: tcp

@@ -64,7 +64,6 @@ func (c *CoAPBathHandler) HandleCoAPBath(l *net.UDPConn, a *net.UDPAddr, m *coap
 			Code:      coap.Content,
 			MessageID: m.MessageID,
 			Token:     m.Token,
-			Payload:   jsonUser,
 		}
 		res.SetOption(coap.ContentFormat, coap.TextPlain)
 

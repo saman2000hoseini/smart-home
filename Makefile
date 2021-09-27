@@ -1,8 +1,11 @@
 export APP=smart-home
 export LDFLAGS="-w -s"
 
-subscribe:
-	go run -ldflags $(LDFLAGS) ./cmd/smart-home subscribe
+mqtt-subscribe:
+	go run -ldflags $(LDFLAGS) ./cmd/smart-home mqtt-subscribe
+
+amqp-subscribe:
+	go run -ldflags $(LDFLAGS) ./cmd/smart-home amqp-subscribe
 
 coap-server:
 	go run -ldflags $(LDFLAGS) ./cmd/smart-home coap-server

@@ -1,4 +1,4 @@
-package hivemq
+package mqtt
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"github.com/saman2000hoseini/smart-home/internal/app/smart-home/config"
 )
 
-func CreateHiveMQConnection(cfg config.HiveMQ) mqtt.Client {
+func CreateMQTTConnection(cfg config.MQTT) mqtt.Client {
 	server := fmt.Sprintf("%s://%s:%d", cfg.Connection, cfg.Address, cfg.Port)
 	opts := mqtt.NewClientOptions().AddBroker(server).SetClientID(cfg.Client)
 

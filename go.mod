@@ -11,6 +11,7 @@ require (
 	github.com/saman2000hoseini/mossgow v0.0.0-20210509101433-7d6b28d3260f
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.1.3
+	github.com/streadway/amqp v1.0.0 // indirect
 	golang.org/x/sys v0.0.0-20210611083646-a4fc73990273 // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 	gopkg.in/go-playground/validator.v9 v9.31.0

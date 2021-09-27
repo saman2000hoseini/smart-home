@@ -15,11 +15,11 @@ const (
 
 type (
 	Config struct {
-		HiveMQ     HiveMQ     `mapstructure:"hivemq"`
+		MQTT       MQTT       `mapstructure:"mqtt"`
 		HTTPServer HTTPServer `mapstructure:"http-server"`
 	}
 
-	HiveMQ struct {
+	MQTT struct {
 		Port       int    `mapstructure:"port"`
 		Address    string `mapstructure:"address"`
 		Connection string `mapstructure:"connection"`
